@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Item
+{% endblock %}
+
+{% block main %}
+
+    <h3 style="color:purple; padding-bottom: 10px; font-style: italic">Use the below form to add a spending item. Be sure to enter a descriptive summary, along with the exact price. </h3>
+
+    <form action="/add" method="post">
+        <div class="form-group">
+            <select class="form-control" name="category">
+                <option disabled selected value="">Category</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Clothing</option>
+                    <option>Health</option>
+                    <option>Transportation</option>
+                    <option>Savings</option>
+                    <option>Other</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="description" placeholder="Description" type="text">
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="cost" placeholder="Cost" type="number" step=".01">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}

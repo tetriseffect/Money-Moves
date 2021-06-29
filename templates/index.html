@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+
+
+    <h1 style="color:green;" class="ita" >Your Current Spending:</h1>
+
+    <table id = "mytable" class="table table-striped left">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Cost</th>
+            </tr>
+
+
+        </thead>
+        <tbody>
+            {% for i in chart %}
+                <tr>
+                    <td>
+                        {{ i['category'] }}
+                    </td>
+
+                    <td>
+                        {{ i['description'] }}
+                    </td>
+
+                    <td>
+                        {{ i['transacted'] }}
+                    </td>
+
+                    <td>
+                        {{ usd(i['cost']) }}
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td style="font-weight:bold" colspan="3">Total Spend</td>
+                <td style="font-weight:bold"> {{ usd(tot) }} </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

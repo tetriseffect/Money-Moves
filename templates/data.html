@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Data
+{% endblock %}
+
+{% block main %}
+
+    <head>
+
+    <canvas id="pie-chart" width="800" height="450"></canvas>
+
+    <script>
+
+    var bil = {{ bills }}
+    var ent = {{ Entertainment }}
+    var cloth = {{ Clothing }}
+    var healt = {{ Health }}
+    var transpor = {{ Transportation }}
+    var sav = {{ savings }}
+    var othe = {{ other }}
+
+    new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+        data: {
+          labels: ["Bills", "Entertainment", "Clothing", "Health", "Transportation", "Savings", "Other"],
+          datasets: [{
+            label: "Cost",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9", "#c45850", "#34495E", "#F7DC6F"],
+            data: [bil, ent, cloth, healt, transpor, sav, othe]
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Your Spending'
+          }
+        }
+    });
+
+    </script>
+
+    </head>
+
+<br>
+<br>
+
+
+<h1>----------------------------------------------------</h1>
+
+<h1 style="color:purple;">Since using Money Moves, you have:</h1>
+
+<br>
+<br>
+
+
+<h2>Spent <span style="color:green">{{ usd(bills) }}</span> on Bills</h2>
+
+<h2>Spent <span style="color:green">{{ usd(Entertainment) }}</span> on Entertainment</h2>
+
+<h2>Spent <span style="color:green">{{ usd(Clothing) }}</span> on Clothing</h2>
+
+<h2>Spent <span style="color:green">{{ usd(Health) }}</span> on Health</h2>
+
+<h2>Spent <span style="color:green">{{ usd(Transportation) }}</span> on Transportation</h2>
+
+<h2>Spent <span style="color:green">{{ usd(other) }}</span> on Other</h2>
+
+<br>
+<br>
+
+<h2>Saved <span style="color:green">{{ usd(savings) }}</span> of your income!</h2>
+
+
+
+
+{% endblock %}
