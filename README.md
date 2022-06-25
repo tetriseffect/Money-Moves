@@ -1,4 +1,4 @@
-Final project for CS50x - Money Moves: a budgeting / money management app. It allows users to enter purchases and track them by category. User's can view charts summarizing their spending by category or month. The project uses the following tech stack:
+Final project for CS50x - Money Moves: a budgeting / money management app. It allows users to enter purchases and track them by category. User's can view charts summarizing their spending by category or month. The project uses the following stack:
 
 -Python  
 -Flask (Jinja2)  
